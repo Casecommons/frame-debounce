@@ -15,9 +15,9 @@ function debounce(fn, now) {
   return debounced
 
   function debounced() {
-    if (requestId !== null) return requestId
     args = slice(arguments)
     ctx = this
+    if (requestId !== null) return requestId
     if (now) fn.apply(ctx, args)
     requestId = raf(next)
     return requestId
